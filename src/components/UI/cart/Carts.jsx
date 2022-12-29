@@ -35,7 +35,7 @@ const Carts = () => {
             ))
           )}
         </div>
-
+        {cartProducts.length !== 0 ? (
         <div className="cart__bottom d-flex align-items-center justify-content-between">
           <h6>
             Subtotal : <span>${totalAmount}</span>
@@ -46,6 +46,7 @@ const Carts = () => {
             </Link>
           </button>
         </div>
+        ):(<div></div>)}
       </ListGroup>
     </div>
   );

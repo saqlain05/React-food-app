@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Container, Row, Col } from "reactstrap";
 import { cartActions } from "../store/shopping-cart/cartSlice";
 import { Link } from "react-router-dom";
+import StickyFooterForBtn from "../components/Footer/StickyFooterForBtn";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -38,24 +39,29 @@ const Cart = () => {
                   </tbody>
                 </table>
               )}
-
+              {cartItems.length !== 0 ? (
               <div className="mt-4">
                 <h6>
-                  Subtotal: $
+                  Subtotal: ₹
                   <span className="cart__subtotal">{totalAmount}</span>
                 </h6>
                 <p>Taxes and shipping will calculate at checkout</p>
                 <div className="cart__page-btn">
-                  <button className="addTOCart__btn me-4">
+                  <button className="addTOCart__btn me-4" style={{width:"100%", padding:"10px 0px", fontSize:"1rem"}}>
                     <Link to="/foods">Continue Shopping</Link>
-                  </button>
-                  <button className="addTOCart__btn">
-                    <Link to="/checkout">Proceed to checkout</Link>
                   </button>
                 </div>
               </div>
+              ):(<div>
+                <button className="addTOCart__btn" style={{width:"100%", padding:"10px 0px", fontSize:"1rem"}}>
+                    <Link to="/foods">Continue Shopping</Link>
+                  </button>
+              </div>)}
             </Col>
           </Row>
+          {cartItems.length !== 0 ? (
+          <StickyFooterForBtn title="Proceed to checkout" url="/checkout"/>
+          ):(<div></div>)}
         </Container>
       </section>
     </Helmet>
@@ -69,14 +75,41 @@ const Tr = (props) => {
   const deleteItem = () => {
     dispatch(cartActions.deleteItem(id));
   };
+
+  const incrementItem = () => {
+    dispatch(
+      cartActions.addItem({
+        id,
+        title,
+        price,
+        image01,
+      })
+    );
+  };
+
+  const decreaseItem = () => {
+    dispatch(cartActions.removeItem(id));
+  };
   return (
     <tr>
+      <Link to={`/foods/${id}`}>
       <td className="text-center cart__img-box">
         <img src={image01} alt="" />
       </td>
+      </Link>
       <td className="text-center">{title}</td>
-      <td className="text-center">${price}</td>
-      <td className="text-center">{quantity}px</td>
+      <td className="text-center">₹{price}</td>
+      <td className="text-center">
+        <div className=" d-flex align-items-center justify-content-between increase__decrease-btn">
+              <span className="increase__btn" onClick={incrementItem}>
+                <i class="ri-add-line"></i>
+              </span>
+              <span className="quantity">{quantity}</span>
+              <span className="decrease__btn" onClick={decreaseItem}>
+                <i class="ri-subtract-line"></i>
+              </span>
+         </div>
+        </td>
       <td className="text-center cart__item-del">
         <i class="ri-delete-bin-line" onClick={deleteItem}></i>
       </td>

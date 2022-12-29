@@ -10,6 +10,7 @@ import ReactPaginate from "react-paginate";
 
 import "../styles/all-foods.css";
 import "../styles/pagination.css";
+import StickyFooter from "../components/Footer/StickyFooter";
 
 const AllFoods = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -73,7 +74,7 @@ const AllFoods = () => {
             </Col>
 
             {displayPage.map((item) => (
-              <Col lg="3" md="4" sm="6" xs="6" key={item.id} className="mb-4">
+              <Col lg="3" md="4" sm="6" xs="12" key={item.id} className="mb-4">
                 <ProductCard item={item} />
               </Col>
             ))}
@@ -88,6 +89,7 @@ const AllFoods = () => {
               />
             </div>
           </Row>
+          <StickyFooter />
         </Container>
       </section>
     </Helmet>

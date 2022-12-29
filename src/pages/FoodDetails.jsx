@@ -12,6 +12,7 @@ import { cartActions } from "../store/shopping-cart/cartSlice";
 import "../styles/product-details.css";
 
 import ProductCard from "../components/UI/product-card/ProductCard";
+import StickyFooter from "../components/Footer/StickyFooter";
 
 const FoodDetails = () => {
   const [tab, setTab] = useState("desc");
@@ -192,6 +193,7 @@ const FoodDetails = () => {
               </Col>
             ))}
           </Row>
+          <StickyFooter />
         </Container>
       </section>
     </Helmet>

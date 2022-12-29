@@ -9,6 +9,8 @@ import Checkout from "../pages/Checkout";
 import Contact from "../pages/Contact";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Resturent from "../pages/Resturent";
+import SingleResturent from "../pages/SingleResturent";
 
 const Routers = () => {
   return (
@@ -22,6 +24,8 @@ const Routers = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/resturents" element={<Resturent />} />
+      <Route path="/resturents/:id" element={<SingleResturent />} />
     </Routes>
   );
 };
