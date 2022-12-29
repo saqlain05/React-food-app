@@ -12,6 +12,7 @@ import "../styles/all-foods.css";
 import "../styles/pagination.css";
 import { useParams } from "react-router-dom";
 import StickyFooter from "../components/Footer/StickyFooter";
+import resturentData from "../assets/fake-data/resturentData";
 
 const SingleResturent = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -45,10 +46,13 @@ const SingleResturent = () => {
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
+  const resturentDatas = resturentData.find((restro)=>restro.id===id);
+  const {title,location} = resturentDatas;
+
 
   return (
     <Helmet title="All-Foods">
-      <CommonSection title="All Foods" />
+      <CommonSection title={title} location = {" , "+location}/>
 
       <section>
         <Container>
@@ -57,7 +61,7 @@ const SingleResturent = () => {
               <div className="search__widget d-flex align-items-center justify-content-between ">
                 <input
                   type="text"
-                  placeholder="I'm looking for...."
+                  placeholder={"Search for food in " + title + " Resturents..."}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+// import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Container, Row, Col } from "reactstrap";
 import CommonSection from "../components/UI/common-section/CommonSection";
@@ -6,37 +7,37 @@ import Helmet from "../components/Helmet/Helmet";
 
 import "../styles/checkout.css";
 import { Link } from "react-router-dom";
+import StickyFooterForBtn from "../components/Footer/StickyFooterForBtn";
 
 const Checkout = (props) => {
-  const [enterName, setEnterName] = useState("");
-  const [enterEmail, setEnterEmail] = useState("");
-  const [enterNumber, setEnterNumber] = useState("");
-  const [enterCountry, setEnterCountry] = useState("");
-  const [enterCity, setEnterCity] = useState("");
-  const [postalCode, setPostalCode] = useState("");
+  // const [enterName, setEnterName] = useState("");
+  // const [enterEmail, setEnterEmail] = useState("");
+  // const [enterNumber, setEnterNumber] = useState("");
+  // const [enterCountry, setEnterCountry] = useState("");
+  // const [enterCity, setEnterCity] = useState("");
+  // const [postalCode, setPostalCode] = useState("");
 
-  const shippingInfo = [];
+  // const shippingInfo = [];
   const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
   const shippingCost = 10;
 
   const totalAmount = cartTotalAmount + Number(shippingCost);
   const cartItems = useSelector((state) => state.cart.cartItems);
-  const cartItemss = useSelector((state) => console.log(state.cart.cartItems));
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    const userShippingAddress = {
-      name: enterName,
-      email: enterEmail,
-      phone: enterNumber,
-      country: enterCountry,
-      city: enterCity,
-      postalCode: postalCode,
-    };
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
+  //   const userShippingAddress = {
+  //     name: enterName,
+  //     email: enterEmail,
+  //     phone: enterNumber,
+  //     country: enterCountry,
+  //     city: enterCity,
+  //     postalCode: postalCode,
+  //   };
 
-    shippingInfo.push(userShippingAddress);
-    console.log(shippingInfo);
-  };
+  //   shippingInfo.push(userShippingAddress);
+  //   console.log(shippingInfo);
+  // };
 
   return (
     <Helmet title="Checkout">
@@ -45,7 +46,7 @@ const Checkout = (props) => {
         {cartItems.length !== 0 ? (
           <Container>
             <Row>
-              <Col lg="8" md="6">
+              {/* <Col lg="8" md="6">
                 <h6 className="mb-4">Shipping Address</h6>
                 <form className="checkout__form" onSubmit={submitHandler}>
                   <div className="form__group">
@@ -101,17 +102,17 @@ const Checkout = (props) => {
                     Payment
                   </button>
                 </form>
-              </Col>
+              </Col> */}
 
               <Col lg="4" md="6">
                 <div className="checkout__bill">
                   {cartItems.map((item)=>(
                     <div style={{display:'flex', alignItems:"center", justifyContent:"space-between"}}>
-                    <h5>{item.title}</h5>
+                    <h6>{item.title}</h6>
                     <h6>{"₹" + item.price +  " (x" + item.quantity + ")"}</h6>
                   </div>
                   ))}
-                  <br></br>
+                  <hr></hr>
                   <h6 className="d-flex align-items-center justify-content-between mb-3">
                     Subtotal: <span>₹{cartTotalAmount}</span>
                   </h6>
@@ -126,6 +127,7 @@ const Checkout = (props) => {
                 </div>
               </Col>
             </Row>
+            <StickyFooterForBtn title="Payment" url=""/>
           </Container>
         ) : (
           <div style={{ display: 'flex', alignItems: "center", justifyContaint: "center", flexDirection: 'column' }}>

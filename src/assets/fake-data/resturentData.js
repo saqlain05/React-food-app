@@ -9,21 +9,25 @@ const resturentData = [
     id: "01",
     title: "Aminia",
     image: Aminia,
+    location: "Chinar Park"
   },
   {
     id: "02",
     title: "Dada Baudi",
     image: DadaBaudi,
+    location: "Barrackpore"
   },
   {
     id: "03",
     title: "Arsalan",
     image: Arsalan,
+    location: "Sodepure"
   },
   {
     id: "04",
     title: "ZamZam",
     image: zamzam,
+    location: "Ripon Street"
   },
 
   ];

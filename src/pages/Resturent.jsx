@@ -50,7 +50,7 @@ const Resturent = () => {
               <div className="search__widget d-flex align-items-center justify-content-between ">
                 <input
                   type="text"
-                  placeholder="I'm looking for...."
+                  placeholder="Search your favorite Resturent...."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />

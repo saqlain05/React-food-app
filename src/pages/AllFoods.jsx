@@ -52,7 +52,7 @@ const AllFoods = () => {
               <div className="search__widget d-flex align-items-center justify-content-between ">
                 <input
                   type="text"
-                  placeholder="I'm looking for...."
+                  placeholder="Search your favorite Resturent...."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -72,7 +72,7 @@ const AllFoods = () => {
                 </select>
               </div>
             </Col>
-
+            
             {displayPage.map((item) => (
               <Col lg="3" md="4" sm="6" xs="12" key={item.id} className="mb-4">
                 <ProductCard item={item} />

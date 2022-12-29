@@ -29,7 +29,7 @@ const Cart = () => {
                       <th>Product Title</th>
                       <th>Price</th>
                       <th>Quantity</th>
-                      <th>Delete</th>
+                      {/* <th>Delete</th> */}
                     </tr>
                   </thead>
                   <tbody>
@@ -63,6 +63,7 @@ const Cart = () => {
           <StickyFooterForBtn title="Proceed to checkout" url="/checkout"/>
           ):(<div></div>)}
         </Container>
+        
       </section>
     </Helmet>
   );
@@ -109,10 +110,12 @@ const Tr = (props) => {
                 <i class="ri-subtract-line"></i>
               </span>
          </div>
+         <br></br>
+         <button className="addTOCart__btn" onClick={deleteItem}>Delete</button>
         </td>
-      <td className="text-center cart__item-del">
+      {/* <td className="text-center cart__item-del">
         <i class="ri-delete-bin-line" onClick={deleteItem}></i>
-      </td>
+      </td> */}
     </tr>
   );
 };
