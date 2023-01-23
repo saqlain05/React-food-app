@@ -20,7 +20,7 @@ const ResturentCard = (props) => {
         </h4>
       </div>
     </div>
-  );
+  )
 };
 
 export default ResturentCard;

@@ -16,8 +16,8 @@ const navLinks = [
         path: "/cart",
       },
       {
-        display: "Contact",
-        path: "/contact",
+        display: "Profile",
+        path: "/profile",
       },
 ]
 

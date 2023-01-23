@@ -112,7 +112,7 @@ const Checkout = (props) => {
                     <h6>{"₹" + item.price +  " (x" + item.quantity + ")"}</h6>
                   </div>
                   ))}
-                  <hr></hr>
+                 
                   <h6 className="d-flex align-items-center justify-content-between mb-3">
                     Subtotal: <span>₹{cartTotalAmount}</span>
                   </h6>
